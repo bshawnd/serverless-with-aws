@@ -2,10 +2,12 @@ service: serverless
 
 provider:
   name: aws
-  runtime: nodejs8.10
-  profile: femasters
-  region: us-west-1
+  runtime: nodejs12.x
+  memorySize: 512 # optional, in MB, default is 1024
+  timeout: 10 # optional, in seconds, default is 6
+  region: us-east-1
   stage: dev
+  profile: serverless-servicename-agent
 
 plugins:
   - serverless-offline
@@ -13,4 +15,3 @@ plugins:
 functions:  
   helloworld:
     handler: src/helloworld.handler
-    
